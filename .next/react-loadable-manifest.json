@@ -1,0 +1,28 @@
+{
+  "components/Plantas.tsx -> ./MapController": {
+    "id": "components/Plantas.tsx -> ./MapController",
+    "files": [
+      "static/chunks/_app-pages-browser_components_MapController_tsx.js"
+    ]
+  },
+  "components/Plantas.tsx -> leaflet": {
+    "id": "components/Plantas.tsx -> leaflet",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_leaflet_dist_leaflet-src_js.js"
+    ]
+  },
+  "components/Plantas.tsx -> react-leaflet": {
+    "id": "components/Plantas.tsx -> react-leaflet",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_react-leaflet_lib_index_js.js"
+    ]
+  },
+  "node_modules/@react-three/drei/core/VideoTexture.js -> hls.js": {
+    "id": "node_modules/@react-three/drei/core/VideoTexture.js -> hls.js",
+    "files": []
+  },
+  "node_modules/@react-three/drei/web/FaceLandmarker.js -> @mediapipe/tasks-vision": {
+    "id": "node_modules/@react-three/drei/web/FaceLandmarker.js -> @mediapipe/tasks-vision",
+    "files": []
+  }
+}
