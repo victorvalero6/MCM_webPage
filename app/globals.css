@@ -2,30 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --primary: 221 83% 25%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --accent: 24 95% 53%;
+    --accent-foreground: 222 47% 11%;
+    --border: 214 32% 91%;
+    --ring: 221 83% 53%;
+  }
+}
+
 @layer utilities {
-  .animate-fade-in {
-    animation: fadeIn 1s ease-in forwards;
-  }
-
-  .animate-fade-in-delay {
-    animation: fadeIn 1s ease-in 0.3s forwards;
-    opacity: 0;
-  }
-
   .animate-scroll {
     animation: scroll 1.5s ease-in-out infinite;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
 
   @keyframes scroll {
@@ -33,21 +29,43 @@
       transform: translateY(0);
       opacity: 1;
     }
-
     100% {
       transform: translateY(12px);
       opacity: 0;
     }
   }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: #ffffff;
-  color: #000000;
 }
 
 body {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-feature-settings: "rlig" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove default margin from sections */
+section {
+  margin: 0;
+  padding: 0;
+}
+
+/* Clean focus states */
+*:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
 }

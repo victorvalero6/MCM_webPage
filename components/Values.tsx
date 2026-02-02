@@ -2,6 +2,7 @@
 
 import { Clock, Zap, Layers } from 'lucide-react';
 import { useLanguage } from '@/components/LanguageContext';
+import { FadeInSection } from '@/hooks/useFadeIn';
 
 const Values = () => {
     const { t } = useLanguage();
@@ -9,33 +10,32 @@ const Values = () => {
     const icons = [Clock, Zap, Layers];
 
     return (
-        <section className="py-24 bg-gray-50">
+        <section className="py-20 md:py-28 bg-slate-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
                     {values.map((value, index) => {
                         const Icon = icons[index];
                         return (
-                            <div
-                                key={index}
-                                className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
-                            >
-                                <div className="flex items-center gap-5 mb-6">
-                                    <div className="flex items-center justify-center w-16 h-16 bg-blue-900 rounded-full shrink-0">
-                                        <Icon className="text-white" size={32} />
+                            <FadeInSection key={index} delay={index * 100}>
+                                <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border border-slate-100 h-full">
+                                    <div className="flex items-center gap-4 mb-5">
+                                        <div className="flex items-center justify-center w-14 h-14 bg-blue-900 rounded-xl shrink-0">
+                                            <Icon className="text-white" size={28} />
+                                        </div>
+                                        <div>
+                                            <h3 className="text-xl font-bold text-slate-900">
+                                                {value.title}
+                                            </h3>
+                                            <p className="text-sm text-slate-500">
+                                                {value.subtitle}
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <h3 className="text-2xl font-bold text-gray-900">
-                                            {value.title}
-                                        </h3>
-                                        <p className="text-sm italic text-gray-600">
-                                            {value.subtitle}
-                                        </p>
-                                    </div>
+                                    <p className="text-slate-600 leading-relaxed">
+                                        {value.description}
+                                    </p>
                                 </div>
-                                <p className="text-gray-700 leading-relaxed text-justify">
-                                    {value.description}
-                                </p>
-                            </div>
+                            </FadeInSection>
                         );
                     })}
                 </div>
